@@ -45,6 +45,8 @@ GEM
     activerecord (6.0.3.4)
       activemodel (= 6.0.3.4)
       activesupport (= 6.0.3.4)
+    activerecord-postgresql-adapter (0.0.1)
+      pg
     activestorage (6.0.3.4)
       actionpack (= 6.0.3.4)
       activejob (= 6.0.3.4)
@@ -108,6 +110,7 @@ GEM
     nio4r (2.5.4)
     nokogiri (1.10.10-x86-mingw32)
       mini_portile2 (~> 2.4.0)
+    pg (1.2.3-x86-mingw32)
     public_suffix (4.0.6)
     puma (4.3.6)
       nio4r (~> 2.0)
@@ -202,12 +205,14 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  activerecord-postgresql-adapter
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
   coffee-rails
   font-awesome-rails
   jbuilder (~> 2.7)
+  pg
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
   sass-rails (>= 6)
