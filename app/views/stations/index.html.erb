@@ -1,0 +1,34 @@
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+<%= javascript_pack_tag 'map' %>
+<%= stylesheet_link_tag 'https://unpkg.com/leaflet@1.0.3/dist/leaflet.css'%>
+
+<div class="row">
+    <div class="col-6">
+        <ul id="stations" class="list-group">
+            <% @stations['records'].each do |station| %>
+            <a class="station_item list-group-item list-group-item-action" <%= raw get_station_item_attr station %> >
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 w-100 bd-highlight font-weight-bold"><%= station['fields']['nom'] %></div>
+                    <div class="p-2 flex-shrink-1 bd-highlight"><span class="badge badge-<%=station['fields']['etat']=='EN SERVICE' ? 'success' : 'danger' %>"> <%=station['fields']['etat']%> </span></div>
+                </div>
+                <div class="description d-flex bd-highlight">
+                    <div class="p-2 flex-fill bd-highlight">
+                        Places disponibles: <%= station['fields']['nbplacesdispo'] %><br/>
+                        Vélos disponibles: <%= station['fields']['nbvelosdispo'] %>
+                    </div>
+                    <div class="p-2  flex-fill bd-highlight">
+                        Adresse : <%= station['fields']['adresse'] %><br/>
+                        Commune : <%= station['fields']['commune'] %>
+
+                    </div>
+                </div>
+            </a>
+            <% end %>
+        </ul>
+    </div>
+    <div class="col-6">
+        <div class="sticky-top w-100">
+        <div id="mapDiv" style="height:100vh"></div>
+        </div>
+    </div>
+</div>

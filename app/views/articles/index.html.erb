@@ -1,0 +1,29 @@
+<h3>Liste d'articles</h3>
+
+<%= link_to '<i class="fa fa-plus-circle"></i> Ajouter un article'.html_safe, new_article_path, class: "btn btn-success mb-3" %>
+
+<table class="table table-bordered table-striped text-center">
+  <tr>
+    <th>Titre</th>
+    <th>Texte</th>
+    <th colspan=3>Actions</th>
+  </tr>
+ 
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td>
+        <%= raw link_to '<i class="fa fa-eye"></i>'.html_safe, article_path(article), class: "btn-lg btn-outline-secondary", title: 'Afficher'%>
+      </td>
+      <td><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_article_path(article), class: "btn-lg btn-outline-info", title: 'Modifier' %></td>
+      <td><%= link_to '<i class="fa fa-trash"></i>'.html_safe, article_path(article), class: "btn-lg btn-outline-danger", title: 'Supprimer',
+              method: :delete,
+              data: { confirm: 'Êtes vous sur de vouloir supprimer cet article?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div class="alert alert-info" role="alert">
+  <p><strong>Info:</strong> Pour tester l'authentification vous pouvez essayer login:"dkm" mdp:"dkm"</p>
+</div>

@@ -1,0 +1,10 @@
+<li class="media my-3">
+    <img class="mr-3" src="<%=image_url('user_icon1.png')%>" alt="Generic placeholder image">
+    <div class="media-body">
+    <h6 class="mt-0 mb-1"><%= comment.commenter %></h6>
+    <%= comment.body %>
+    <%= link_to '<i class="fa fa-trash"></i> Supprimer'.html_safe, [comment.article, comment], class: "btn btn-outline-danger btn-sm",
+           method: :delete,
+           data: { confirm: 'Are you sure?' } %>
+    </div>
+</li>
