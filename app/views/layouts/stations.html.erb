@@ -1,9 +1,9 @@
 <% content_for :content do %>
-    <div class="jumbotron text-center">
-        <h1>Vlille</h1>
-        <h4>Plateforme de localisation des stations de vélos de la métropole lilloise</h4>
+    <div class="jumbotron text-center text-white" style="background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),url('<%=image_url('vlille_1920.jpg')%>'); background-size: cover;">
+        <h1 class="display-4">Vlille</h1>
+        <p class="lead">Plateforme de localisation des stations de vélos de la métropole lilloise.</p>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid" >
         <%= yield %>
     </div>
 <% end %>

@@ -1,3 +1,32 @@
-<h1>Hello, Rails!</h1>
-<%= link_to 'My Blog', controller: 'articles' %> <br/>
-<%= link_to 'Vlille', controller: 'stations' %>
+<% content_for :content do %>
+<div class="p-4">
+    <h1 class="display-4">Bienvenue sur mon site !</h1>
+    <p class="lead">Decouvrez les plateformes que j'ai développé avec le framework Ruby on rails.</p>
+    <hr class="my-4">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="<%=image_url('vlille_640.jpg')%>" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Vlille</h5>
+                    <p class="card-text">Plateforme de localisation des stations de vélos de la métropole lilloise.</p>
+                    <%= link_to 'Visiter', {controller: 'stations'}, class: 'btn btn-primary'%>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="<%=image_url('blog_640.jpg')%>" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Articles</h5>
+                    <p class="card-text">Plateforme de publication d'articles et de commentaires avec persistance de données.</p>
+                    <%= link_to 'Visiter', {controller: 'articles'}, class: 'btn btn-primary'%>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+
+<% end %>
+
+<%= render template: "layouts/application" %>
